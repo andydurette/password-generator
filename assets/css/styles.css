@@ -1,0 +1,85 @@
+body{
+  background-color: #f9fbfd;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1{
+  text-align: center;
+  color: #3b4954;
+}
+
+h2{
+  font-size: 2em;
+  border-bottom: 2px solid #e7e9eb;
+  margin-bottom:0;
+  padding-bottom:26.5px;
+  color: #3b4954;
+}
+
+#passwordGenerator{
+  background-color:white;
+  max-width: 800px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding:20px 20px 40px 20px;
+  border-radius:5px;
+  box-shadow:0px 0px 4px grey;
+}
+
+#password{
+  width:100%;
+  height:150px;
+  margin: 10px 0;
+  padding: 20px 20px 20px 20px;
+  border:dashed 2px #999;
+  border-radius:5px;
+  text-align:center;
+  box-sizing: border-box;
+  resize: none;
+  font-size: 1.4em; 
+}
+
+#generate, #copy{
+  border-radius:50px;
+  border: none;
+  padding:10px 30px;
+  font-size:1.5em;
+  color: white;
+  background-color: #af0808;
+}
+
+#copy[disabled]{
+  background-color: #c0c7cf;
+  cursor: not-allowed;
+}
+
+.controls{
+  width:95%;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  margin: 0 auto;
+  border-top: 2px solid #e7e9eb;
+  padding-top:20px;
+}
+
+.controls button{
+  margin-bottom:20px;
+  cursor: pointer;
+  width:100%;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width:768px){
+  .controls{
+    flex-wrap:wrap;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+
+  .controls button{
+    min-width:272.11px;
+    width: auto;
+    margin:0 20px 20px 20px;
+  }
+}
