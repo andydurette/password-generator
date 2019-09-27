@@ -55,41 +55,40 @@ let password = '';
     chars.push(specialChars);
   }
 
-
-
- let generatedPassword = () => {
-    password = '';
-    while (password.length <= Number(passwordLength)) {
-      let randomNumber = Math.floor(Math.random() * Number(chars.length));
-      if (randomNumber === 0){
-        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-      }else if(randomNumber === 1){
-        password += upperCase[Math.floor(Math.random() * lowerCase.length)];
-      }else if(randomNumber === 2){
-        password += numbers[Math.floor(Math.random() * numbers.length)];
-      }else if(randomNumber === 3){
-        password += specialChars[Math.floor(Math.random() * specialChars.length)];
+    let generatedPassword = () => {
+      password = '';
+      while (password.length <= Number(passwordLength)) {
+        let charRand = Math.floor(Math.random() * Number(chars.length));
+        let charRandRes = Math.random() * chars[charRand].length
+        password += chars[charRand].substring(charRandRes,charRandRes + 1);
       }
-    }
-
+    
+    //Recursive fallbacks to make sure every specified character appears at least once.
     if(lowercaseCharacter === true){
-      if(password.match(/[a-z]/i) === null){
+      if(password.match(/[a-z]/) === null){
         generatedPassword();
       }
     }
 
     if(uppercaseCharacter === true){
-      if(password.match(/[A-Z]/i) === null){
+      if(password.match(/[A-Z]/) === null){
         generatedPassword();
       }
     }
 
     if(numericCharacter === true){
-      if(password.match(/[!#$%&()*+,-./:;<=>?@^_`{|}~]/i) === null){
+      if(password.match(/[0-9]/) === null){
         generatedPassword();
       }
     }
- } 
+
+    if(numericCharacter === true){
+      if(password.match(/[!#$%&()*+,-./:;<=>?@^_`{|}~]/) === null){
+        generatedPassword();
+      }
+    }  
+  }
+ 
 
 
 
