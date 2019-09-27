@@ -61,33 +61,39 @@ let password = '';
         let charRand = Math.floor(Math.random() * Number(chars.length));
         let charRandRes = Math.random() * chars[charRand].length
         password += chars[charRand].substring(charRandRes,charRandRes + 1);
-      }
-    
-    //Recursive fallbacks to make sure every specified character appears at least once.
-    if(lowercaseCharacter === true){
-      if(password.match(/[a-z]/) === null){
-        generatedPassword();
-      }
-    }
+      }  
 
-    if(uppercaseCharacter === true){
-      if(password.match(/[A-Z]/) === null){
-        generatedPassword();
+      //Recursive fallbacks to make sure every specified character appears at least once.
+      if(lowercaseCharacter === true){
+        if(password.match(/[a-z]/) === null){
+          console.log('1');
+          generatedPassword();
+        }
       }
-    }
-
-    if(numericCharacter === true){
-      if(password.match(/[0-9]/) === null){
-        generatedPassword();
+  
+      if(uppercaseCharacter === true){
+        if(password.match(/[A-Z]/) === null){
+          console.log('2');
+          generatedPassword();
+        }
       }
-    }
-
-    if(numericCharacter === true){
-      if(password.match(/[!#$%&()*+,-./:;<=>?@^_`{|}~]/) === null){
-        generatedPassword();
+  
+      if(numericCharacter === true){
+        if(password.match(/[0-9]/) === null){
+          console.log('3');
+          generatedPassword();
+        }
       }
-    }  
+  
+      if(specialCharacter === true){
+        if(password.match(/[!#$%&()*+,-./:;<=>?@^_`{|}~]/) === null){
+          console.log('4');
+          generatedPassword();
+        }
+      }
   }
+
+      
  
 
 
