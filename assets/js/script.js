@@ -17,7 +17,11 @@ document.getElementById('generate').addEventListener("click", () => {
   // Call function to check is if the prompts value is a number greater than 7 or 8 if it's not rerun the function
     let lengthConfirm = () => {
       let numbercall = prompt("Provide a password length, it must be between 8 and 128 characters");
-      if (isNaN(numbercall) || false || numbercall < 8 || numbercall > 128 ){
+
+      
+      /*if( numbercall === null){
+        console.log("I want to escape that would be good.")
+      }else*/ if (isNaN(numbercall) || false || numbercall < 8 || numbercall > 128 ){
         alert("Incorrect value.");
         lengthConfirm()
       }else{
@@ -73,8 +77,8 @@ document.getElementById('generate').addEventListener("click", () => {
           let charRand = Math.floor(Math.random() * Number(chars.length));
           // Randomizes a number from the length of the array index, this is used to brag a part of the string of for a password character
           let charRandRes = Math.random() * chars[charRand].length
-          // Substring is used to joing the two refrences and substring +1 makes sure to move a spot forward to grab a singular character value;
-          password += chars[charRand].substring(charRandRes,charRandRes + 1);
+          // CharAt to pull character from the array child string
+          password += chars[charRand].charAt(charRandRes);
         }  
   
         //Recursive fallbacks to make sure every specified character appears at least once.
