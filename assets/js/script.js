@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
       // Call function to check is if the prompts value is a number greater than 7 or 8 if it's not rerun the function
       let lengthConfirm = () => {
-          numbercall = prompt("Provide a password length in numberical format, it must be between 8 and 128 characters");
+          numbercall = prompt("Provide a password length in numerical format, it must be between 8 and 128 characters");
 
 
           if (numbercall === null) {
