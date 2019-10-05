@@ -1,4 +1,6 @@
+
 document.addEventListener('DOMContentLoaded', (event) => {
+
 
 
   // On click of the generate button the password generation will be run and if the copy button is disabled it will be removed as a password if now available to copy
