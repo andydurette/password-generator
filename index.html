@@ -29,5 +29,63 @@
         </button>
       </div>
   </section>
+
+
+<!-- Modal -->
+
+  <div class="modalOverlay hide" id="modalOverlay"></div>
+  <div class="modal hide" id="modal">
+    <button class="close-button" id="close-button">X</button>
+    <div class="modal-guts">
+       <h1>Password Generation settings</h1>
+       <section id="options">
+          <div class="questionBox">
+             <p>Please provide a password length in numerical format, it must be between 8 and 128 characters.</p>
+             <div>
+                <input type="text" name="password Length" id="passwordLength">
+             </div>
+          </div>
+          <div class="questionBox">
+             <p>Include lowercase characters in your password?</p>
+             <div>
+                <label for="lowercase">Yes</label>
+                <input type="radio" name="lowercase" id="lc_yes" checked="checked">
+                <label for="lowercase">No</label>
+                <input type="radio" name="lowercase" id="lc_no">
+             </div>
+          </div>
+          <div class="questionBox">
+             <p>Include upper characters in your password?</p>
+             <div>
+                <label for="uppercase">Yes</label>
+                <input type="radio" name="uppercase" id="up_yes" checked="checked" >
+                <label for="uppercase">No</label>
+                <input type="radio" name="uppercase" id="up_no">
+             </div>
+          </div>
+          <div class="questionBox">
+             <p>Include numbers in your password?</p>
+             <div>
+                <label for="numerical">Yes</label>
+                <input type="radio" name="numerical" id="num_yes" checked="checked">
+                <label for="numerical">No</label>
+                <input type="radio" name="numerical" id="num_no">
+             </div>
+          </div>
+          <div class="questionBox">
+             <p>Include special characters in your password?</p>
+             <div>
+                <label for="specialChar">Yes</label>
+                <input type="radio" name="specialChar" id="spch_yes" checked="checked">
+                <label for="lowercaseYes">No</label>
+                <input type="radio" name="specialChar" id="spch_no">
+             </div>
+          </div>
+          <div id="errorMessage"></div>
+       </section>
+       
+       <button id="generateNow">Generate Password</button>
+    </div>
+ </div>
   </body>
 </html>

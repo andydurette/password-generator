@@ -1,63 +1,48 @@
 document.addEventListener('DOMContentLoaded', (event) => {
 
 
+    document.getElementById('generate').addEventListener("click", () => {
+        document.getElementById("modal").classList.remove("hide");
+        document.getElementById("modalOverlay").classList.remove("hide");
+    });
+
+    document.getElementById('close-button').addEventListener("click", () => {
+        document.getElementById("modal").classList.add("hide");
+        document.getElementById("modalOverlay").classList.add("hide");
+    });
+
+    
+
+
   // On click of the generate button the password generation will be run and if the copy button is disabled it will be removed as a password if now available to copy
-  document.getElementById('generate').addEventListener("click", () => {
+ document.getElementById('generateNow').addEventListener("click", () => {
+     
 
       let chars = [];
       let lowerCase = "abcdefghijklmnopqrstuvwxyz";
       let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
       let numbers = "0123456789";
       let specialChars = "!#$%&()*+,-./:;<=>?@^_`{|}~";
-      let passwordLength;
+      let passwordLength = document.getElementById('passwordLength').value;
       let password = '';
-      let lowercaseCharacter;
-      let uppercaseCharacter;
-      let numericCharacter;
-      let specialCharacter;
-      let numbercall
+      let lowercaseCharacter = document.getElementById("lc_yes").checked;
+      let uppercaseCharacter = document.getElementById("up_yes").checked;
+      let numericCharacter = document.getElementById("num_yes").checked;
+      let specialCharacter = document.getElementById("spch_yes").checked;
+      let errorMessage = document.getElementById("errorMessage"); 
 
-
-      // Call function to check is if the prompts value is a number greater than 7 or 8 if it's not rerun the function
-      let lengthConfirm = () => {
-          numbercall = prompt("Provide a password length in numerical format, it must be between 8 and 128 characters");
-
-
-          if (numbercall === null) {
-              alert("You have opted out of generating a password")
-          } else if (isNaN(numbercall) || false || numbercall < 8 || numbercall > 128) {
-              alert("Incorrect value.");
-              lengthConfirm()
-          } else {
-              passwordLength = numbercall;
-          }
-      }
-
-      // Runs lengthConfrim function grabbing the length for the password
-      let generatePasswordLength = lengthConfirm();
-
-
-      // Gathers all the other information for program logic and error checking
-
-      let charSetConfirm = () => {
-          lowercaseCharacter = confirm("Does it require a lower case character?");
-          uppercaseCharacter = confirm("Does it require an upper case character?");
-          numericCharacter = confirm("Does it require a numeric character?");
-          specialCharacter = confirm("Does it require a special character?");
-
-          // Checks and repeats until at least one type of character set is used
-          if (lowercaseCharacter !== true && uppercaseCharacter !== true && numericCharacter !== true && specialCharacter !== true) {
-              alert("You must include at least one character set.");
-              charSetConfirm();
-          }
-      }
-
-      // Checks at least one type of character set is used if statement if canceling after clicking to generate a password
-      if (numbercall === null) {
-
-      } else {
-          charSetConfirm();
-      }
+      // Clear situation changes to html
+      errorMessage.innerHTML = '';
+      document.getElementById('passwordLength').classList.remove('redBorder');
+    
+      // Checks and repeats until at least one type of character set is used
+      if(isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
+        errorMessage.innerHTML = 'Please provide a password length in numerical format, it must be between 8 and 128 characters';
+        document.getElementById('passwordLength').classList.add('redBorder');
+      }else if (lowercaseCharacter !== true && uppercaseCharacter !== true && numericCharacter !== true && specialCharacter !== true) {
+        errorMessage.innerHTML = 'You must include at least one character set for the password generation.';
+      }else{
+        
 
       // Checks which of the character sets were asked for and pushes them to the chars variable
       if (lowercaseCharacter === true) {
@@ -114,12 +99,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
 
       // Stops generation of a password when clicking to generate a password if numbercall is null otherwise generates password
-      if (numbercall === null) {
-
-      } else {
           generatedPassword();
           document.getElementById('password').innerHTML = password;
           document.getElementById('copy').disabled = false;
+      // Clears Modal
+          document.getElementById("modal").classList.add("hide");
+          document.getElementById("modalOverlay").classList.add("hide");
       }
   });
 
@@ -131,5 +116,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       document.execCommand("copy");
       alert("Copied the text: " + copyText.value);
   });
+
+
 
 });
