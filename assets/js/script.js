@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById('close-button').addEventListener("click", () => {
         document.getElementById("modal").classList.add("hide");
         document.getElementById("modalOverlay").classList.add("hide");
+        // Clear situation changes to html
+      errorMessage.innerHTML = '';
+      document.getElementById('passwordLength').classList.remove('redBorder');
     });
 
     
