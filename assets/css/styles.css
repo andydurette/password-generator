@@ -93,7 +93,7 @@ h2{
   
   /* Probably need media queries here */
   display: flex;
-  align-items: center;
+
   width: 600px;
   max-width: 100%;
   max-height: 100%;
@@ -101,6 +101,7 @@ h2{
   z-index: 100;
   left: 50%;
   top: 50%;
+  overflow-y:auto;
   
   /* Use this for centering if unknown width/height */
   transform: translate(-50%, -50%);
@@ -151,6 +152,7 @@ h2{
 }
 .modal h1 {
   margin: 0 0 20px 0;
+  padding: 0 50px;
 }
 
 .modal .close-button {
@@ -242,4 +244,12 @@ color:#af0808;
   .questionBox p {
     max-width: 370px;
   }
+  
+}
+
+
+@media only screen and (max-width: 599px) {
+#options{
+margin: 10px 20px;
+}
 }
